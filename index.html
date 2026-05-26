@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Password Analyzer</title>
+
+<link rel="stylesheet"
+href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Password Strength Analyzer</h1>
+
+<form method="POST">
+
+<input
+type="password"
+name="password"
+placeholder="Enter Password"
+required>
+
+<button>
+Analyze
+</button>
+
+</form>
+
+{% if result %}
+
+<h2>
+{{result.strength}}
+</h2>
+
+<ul>
+
+{% for item in result.feedback %}
+
+<li>{{item}}</li>
+
+{% endfor %}
+
+</ul>
+
+<p>
+Suggested:
+{{result.suggestion}}
+</p>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>
